@@ -7,5 +7,9 @@
 </head>
 <body>
     <h1> Thank you sir for signing up. We will contact you as soon as possible ..</h1>
+
+<form action="admin.php">
+        <button type="Go To Admin panel">Login</button>
+</form>
 </body>
 </html>
