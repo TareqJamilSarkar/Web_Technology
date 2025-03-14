@@ -6,6 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    
+<fieldset>
+        <legend>Admin Login</legend>
+        <label for="Enter your Email">Enter your Email:</label>
+        <input type="text" id="Enter your Email" name="Enter your Email"><br><br>
+        
+        <label for="Enter Password">Enter Password:</label>
+        <input type="text" id="Enter Password" name="Enter Password"><br><br>
+
+
+        
+        
+</fieldset>
+
+<form action="Home.php">
+        <button type="submit">Submit</button>
+</form>
 </body>
 </html>
