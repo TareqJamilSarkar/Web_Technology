@@ -55,7 +55,7 @@
    
     
 
-<form action="Home.php">
+<form action="admin.php">
         <button type="submit">Submit</button>
 </form>
 
