@@ -20,7 +20,7 @@
 </fieldset>
 
 <form action="Home.php">
-        <button type="submit">Submit</button>
+        <button type="Login">Login</button>
 </form>
 </body>
 </html>
