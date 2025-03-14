@@ -19,7 +19,7 @@
         
 </fieldset>
 
-<form action="Home.php">
+<form action="Admin_Home.php">
         <button type="Login">Login</button>
 </form>
 </body>
