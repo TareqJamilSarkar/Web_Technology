@@ -7,7 +7,7 @@
 </head>
 <body>
 <fieldset>
-        <legend>Admin Login</legend>
+        <legend>seller Login</legend>
         <label for="Enter your Email">Enter your Email:</label>
         <input type="text" id="Enter your Email" name="Enter your Email"><br><br>
         
@@ -19,6 +19,9 @@
         
 </fieldset>
 
+<form action="Admin_Home.php">
+        <button type="Login">Login</button>
+</form>
 <fieldset>
         <legend>Personal Information</legend>
         <label for="first-name">First Name:</label>
@@ -40,9 +43,5 @@
         <input type="text" id="Email" name="Email"><br><br>
 
     </fieldset>
-
-<form action="Admin_Home.php">
-        <button type="Login">Login</button>
-</form>
 </body>
 </html>
