@@ -33,11 +33,7 @@
 
     </fieldset>
 
-    <fieldset>
-    <h2>Message </h2>
-    <p>This is a simple message box for event management. You can customize the content as needed.</p>
-    <button onclick="alert('Button clicked!')">OK</button>
-    </fieldset>
+>
     
     <fieldset>
         <legend>Event Management</legend>
@@ -58,7 +54,11 @@
         <input type="radio" id="reunion" name="event" value="Reunion Party">
         <label for="reunion">Reunion Party</label><br><br>
     </fieldset>
-   
+    <fieldset>
+        <legend>Message to Admin</legend>
+        <label for="message">Your Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+    </fieldset>
     
 
 <form action="Home.php">
