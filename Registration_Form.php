@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h2>Registration</h2>
+    <h2> Customer  Registration</h2>
     
     <fieldset>
         <legend>Personal Information</legend>

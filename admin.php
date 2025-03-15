@@ -7,7 +7,7 @@
 </head>
 <body>
 <fieldset>
-        <legend>seller Login</legend>
+        <legend>Seller Login</legend>
         <label for="Enter your Email">Enter your Email:</label>
         <input type="text" id="Enter your Email" name="Enter your Email"><br><br>
         
@@ -23,7 +23,7 @@
         <button type="Login">Login</button>
 </form>
 <fieldset>
-        <legend>Personal Information</legend>
+        <legend>Seller Registration</legend>
         <label for="first-name">First Name:</label>
         <input type="text" id="first-name" name="first-name"><br><br>
         
