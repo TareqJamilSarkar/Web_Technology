@@ -33,7 +33,6 @@
 
     </fieldset>
 
->
     
     <fieldset>
         <legend>Event Management</legend>
@@ -54,6 +53,7 @@
         <input type="radio" id="reunion" name="event" value="Reunion Party">
         <label for="reunion">Reunion Party</label><br><br>
     </fieldset>
+
     <fieldset>
         <legend>Message to Admin</legend>
         <label for="message">Your Message:</label><br>
