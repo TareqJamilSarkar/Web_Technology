@@ -11,5 +11,8 @@
 <form action="admin.php">
         <button type="Go To Admin panel">Go To Admin panel</button>
 </form>
+<form action="Registration_Form.php">
+        <button type="Go To User panel">Go To User panel</button>
+</form>
 </body>
 </html>
