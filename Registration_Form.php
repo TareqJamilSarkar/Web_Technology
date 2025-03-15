@@ -32,6 +32,12 @@
         <input type="text" id="Email" name="Email"><br><br>
 
     </fieldset>
+
+    <fieldset>
+    <h2>Message </h2>
+    <p>This is a simple message box for event management. You can customize the content as needed.</p>
+    <button onclick="alert('Button clicked!')">OK</button>
+    </fieldset>
     
     <fieldset>
         <legend>Event Management</legend>
