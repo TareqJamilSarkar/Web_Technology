@@ -36,7 +36,7 @@
     
     <fieldset>
         <legend>Event Management</legend>
-        <label>Select an Event Type:</label>
+        <label>Select an Event Type:</label><br>
         
         <input type="radio" id="marriage" name="event" value="Marriage Event">
         <label for="marriage">Marriage Event</label><br>
