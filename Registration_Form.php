@@ -29,7 +29,7 @@
         <input type="text" id="address" name="address"><br><br>
 
         <label for="Email">Email:</label>
-        <input type="text" id="Email" name="Email"><br><br>
+        <input type="email" id="Email" name="Email"><br><br>
 
     </fieldset>
 
