@@ -34,7 +34,7 @@
 
     
     <form>
-        <table>
+        <td>
             <legend>Event Management</legend>
             <label>Select an Event Type:</label><br>
             
@@ -52,7 +52,7 @@
             
             <input type="radio" id="reunion" name="event" value="Reunion Party">
             <label for="reunion">Reunion Party</label><br><br>
-        </table>
+        </td>
     </form>
 
     <form>
