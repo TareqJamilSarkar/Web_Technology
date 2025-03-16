@@ -10,7 +10,7 @@
 <body>
     <h2> Customer  Registration</h2>
     
-    <fieldset>
+    <form>
         <legend>Personal Information</legend>
         <label for="first-name">First Name:</label>
         <input type="text" id="first-name" name="first-name"><br><br>
@@ -30,10 +30,10 @@
         <label for="Email">Email:</label>
         <input type="email" id="Email" name="Email"><br><br>
 
-    </fieldset>
+    </form>
 
     
-    <fieldset>
+    <form>
         <legend>Event Management</legend>
         <label>Select an Event Type:</label><br>
         
@@ -51,13 +51,13 @@
         
         <input type="radio" id="reunion" name="event" value="Reunion Party">
         <label for="reunion">Reunion Party</label><br><br>
-    </fieldset>
+    </form>
 
-    <fieldset>
+    <form>
         <legend>Message to Admin</legend>
         <label for="message">Your Message:</label><br>
         <textarea id="message" name="message" rows="4" cols="50" ></textarea><br><br>
-    </fieldset>
+    </form>
     
 
 <form action="Home.php">
