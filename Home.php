@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body>
     <h1> Thank you sir for signing up. We will contact you as soon as possible ..</h1>
