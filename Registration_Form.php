@@ -1,3 +1,9 @@
+<?php
+require "action.php";
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,40 +17,41 @@
 
     <h2>Customer Registration</h2>
 
-    <form action="Home.php" method="POST">
+    <form action="" method="POST" onsubmit = "return validate()">
+
 
         <fieldset>
             <legend>Personal Information</legend>
 
-            <label for="first-name">First Name:</label>
-            <input type="text" id="first-name" name="first-name"><br>
-            <span class="error" id="name-error"></span><br>
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname">
+            <span  id="error"><?php echo $fnameError; ?> </span><br> 
 
 
             <label for="surname">Surname:</label>
-            <input type="text" id="surname" name="surname"><br>
-            <span class="error" id="surname-error"></span><br>
+            <input type="text" id="surname" name="surname">
+            <span  id="error"><?php echo $surnameError; ?> </span><br> 
 
 
             <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone"><br>
-            <span class="error" id="phone-error"></span><br>
+            <input type="tel" id="phone" name="phone">
+            <span  id="error"><?php echo $phoneError; ?> </span><br> 
 
 
             <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob"><br>
-            <span class="error" id="dob-error"></span><br>
+            <input type="date" id="dob" name="dob">
+            <span  id="error"><?php echo $dobError; ?> </span><br> 
 
 
             <label for="address">Address:</label>
-            <input type="text" id="address" name="address"><br>
-            <span class="error" id="address-error"></span><br>
+            <input type="text" id="address" name="address">
+            <span  id="error"><?php echo $addressError; ?> </span><br> 
 
         
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email"><br>
-            <span class="error" id="email-error"></span><br>
+            <input type="email" id="email" name="email">
+            <span  id="error"><?php echo $emailError; ?> </span><br> 
 
 
         </fieldset>
@@ -74,8 +81,8 @@
 
 
             <input type="radio" id="reunion" name="event" value="Reunion Party">
-            <label for="reunion">Reunion Party</label><br>
-            <span class="error" id="event-error"></span><br>
+            <label for="reunion">Reunion Party</label>
+            <span  id="error"><?php echo $eventError; ?> </span><br>
             
         </fieldset>
 
@@ -85,9 +92,10 @@
             <textarea id="message" name="message" rows="4" cols="50"></textarea>
         </fieldset>
        
-        <button type="submit">Submit</button>
+        <button type="submit" name="submit">Submit</button>
 
     </form>
-    <script src="myjs.js"></script>
+   
+
 </body>
 </html>
