@@ -17,7 +17,7 @@ require "action.php";
 
     <h1>Customer Registration</h1>
 
-    <form action="" method="POST" onsubmit = "return validate()">
+    <form action="Home.php" method="POST" onsubmit = "return validate()">
 
 
         <fieldset>
