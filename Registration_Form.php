@@ -1,5 +1,5 @@
 <?php
-require "action.php";
+require "action.php";  
 
 ?>
 
@@ -15,7 +15,7 @@ require "action.php";
 </head>
 <body>
 
-    <h2>Customer Registration</h2>
+    <h1>Customer Registration</h1>
 
     <form action="" method="POST" onsubmit = "return validate()">
 
