@@ -13,7 +13,7 @@ if (isset($_REQUEST["submit"])) {
 
    
     if (empty($_REQUEST["firstname"])) {
-        $fnameError = "Invalid first name";
+        $fnameError = "Invalid first name" ;
     } else {
         echo $_REQUEST["firstname"] . "<br>";
     }
