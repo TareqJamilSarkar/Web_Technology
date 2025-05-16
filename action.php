@@ -1,66 +1,92 @@
 <?php
 
-$fnameError = "";
-$surnameError = "";
-$phoneError = "";
-$dobError = "";
-$addressError = "";
-$emailError = "";
-$eventError = "";
+include "db.php";
 
+$fnameError = $surnameError = $phoneError = $dobError = $addressError = $emailError = $eventError = $myfileError = "";
+$haserror = 0;
 
-if (isset($_REQUEST["submit"])) {
+$firstname = $surname = $phone = $dob = $address = $email = $event = $message = $myfile = "";
 
-   
-    if (empty($_REQUEST["firstname"])) {
-        $fnameError = "Invalid first name" ;
+if (isset($_POST["submit"])) {
+
+    if (empty($_POST["firstname"])) {
+        $fnameError = "Invalid first name";
+        $haserror = 1;
     } else {
-        echo $_REQUEST["firstname"] . "<br>";
+        $firstname = $_POST["firstname"];
     }
 
-  
-    if (empty($_REQUEST["surname"])) {
+    if (empty($_POST["surname"])) {
         $surnameError = "Invalid surname";
+        $haserror = 1;
     } else {
-        echo $_REQUEST["surname"] . "<br>";
+        $surname = $_POST["surname"];
     }
 
-   
-    if (empty($_REQUEST["phone"])) {
+    if (empty($_POST["phone"])) {
         $phoneError = "Invalid phone number";
+        $haserror = 1;
     } else {
-        echo $_REQUEST["phone"] . "<br>";
+        $phone = $_POST["phone"];
     }
 
-    if (empty($_REQUEST["dob"])) {
+    if (empty($_POST["dob"])) {
         $dobError = "Invalid date of birth";
+        $haserror = 1;
     } else {
-        echo $_REQUEST["dob"] . "<br>";
+        $dob = $_POST["dob"];
     }
 
-   
-    if (empty($_REQUEST["address"])) {
+    if (empty($_POST["address"])) {
         $addressError = "Invalid address";
+        $haserror = 1;
     } else {
-        echo $_REQUEST["address"] . "<br>";
+        $address = $_POST["address"];
     }
 
-
-    if (empty($_REQUEST["email"])) {
+    if (empty($_POST["email"])) {
         $emailError = "Invalid email";
+        $haserror = 1;
     } else {
-        echo $_REQUEST["email"] . "<br>";
+        $email = $_POST["email"];
     }
 
-    if (empty($_REQUEST["event"])) {
+    if (empty($_POST["event"])) {
         $eventError = "Please select an event";
+        $haserror = 1;
     } else {
-        echo $_REQUEST["event"] . "<br>";
+        $event = $_POST["event"];
     }
 
-   
-    if (!empty($_REQUEST["message"])) {
-        echo "Message: " . $_REQUEST["message"] . "<br>";
+    if (!empty($_POST["message"])) {
+        $message = $_POST["message"];
+    }
+
+
+    if (!isset($_FILES["file"]) || $_FILES["file"]["error"] != 0) {
+        $myfileError = "Invalid File";
+        $haserror = 1;
+    } else {
+      
+        $uploadDir = "uploads/";
+        if (!file_exists($uploadDir)) {
+            mkdir($uploadDir, 0777, true);
+        }
+        $myfile = basename($_FILES["file"]["name"]);
+        $targetFile = $uploadDir . $myfile;
+
+        if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
+        
+        } else {
+            $myfileError = "File upload failed";
+            $haserror = 1;
+        }
+    }
+
+    if ($haserror == 0) {
+        $conn = createConObject();
+        insertData($conn, $firstname, $surname, $phone, $dob, $address, $email, $event, $myfile);
+        closeCon($conn);
     }
 }
 ?>
