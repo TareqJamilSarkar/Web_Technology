@@ -9,15 +9,17 @@
 <body>
     <h1> This the Main Home page..</h1>
 
-     <h2> We will contact you as soon as posible..</h2>
 
-<legend>If you are new, please Register here</legend>
+
+
+    
+<h2>If you are new, please Register here</h2>
      <form action="Registration_Form.php" method="POST" enctype="multipart/form-data" onsubmit = "return validate()">
    <button type="submit" name="submit">Sign Up for new users</button>
 </form>
 
 
-<legend>If you are an Admin, please Login here</legend>
+<h2>If you are an Admin, please Login here</h2>
 <form action="admin.php" method="POST" enctype="multipart/form-data" onsubmit = "return validate()">
     <button type="submit" name="submit">Login</button>
 
