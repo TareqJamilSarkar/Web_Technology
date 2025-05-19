@@ -14,7 +14,7 @@
 
 
 <form action="Registration_Form.php" method="POST" enctype="multipart/form-data" onsubmit = "return validate()">
-   <button type="submit" name="submit">Sign Up</button>
+   <button type="submit" name="submit">Sign Up for new users</button>
 </form>
 
 
