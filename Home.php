@@ -12,18 +12,6 @@
 
 
 
-    
-<h2>If you are new, please Register here</h2>
-     <form action="Registration_Form.php" method="POST" enctype="multipart/form-data" onsubmit = "return validate()">
-   <button type="submit" name="submit">Sign Up for new users</button>
-</form>
-
-
-<h2>If you are an Admin, please Login here</h2>
-<form action="admin.php" method="POST" enctype="multipart/form-data" onsubmit = "return validate()">
-    <button type="submit" name="submit">Login</button>
-
-
 
 </form>
 </body>

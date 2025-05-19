@@ -17,7 +17,7 @@ require "action.php";
 
     <h1>Customer Registration</h1>
 
-    <form action="admin.php" method="POST" enctype="multipart/form-data" onsubmit = "return validate()">
+    <form action="Registration_Form.php" method="POST" enctype="multipart/form-data" onsubmit = "return validate()">
 
         <fieldset>
             <legend>Personal Information</legend>
@@ -85,6 +85,7 @@ require "action.php";
         <span  id="error"><?php echo $myfileError; ?> </span><br>
        
         <button type="submit" name="submit">Submit</button>
+        <button type="reset" name="reset">Clear all Information</button>
 
     </form>
    
