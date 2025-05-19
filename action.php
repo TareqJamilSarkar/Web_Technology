@@ -78,7 +78,7 @@ if (isset($_REQUEST["submit"])) {
 
             $targetFile = $uploadDir . $myfile;
             if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
-                header("Location: Admin_Home.php");
+                header("Location: admin.php");
                 exit();
             }
 
