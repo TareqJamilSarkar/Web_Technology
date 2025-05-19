@@ -7,21 +7,21 @@
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-<fieldset>
+<form action="Admin_Home.php" method="POST" enctype="multipart/form-data" onsubmit = "return validate()">
+     
         <legend>Admin Login</legend>
-        <label for="Enter your Email">Enter your Email:</label>
-        <input type="text" id="Enter your Email" name="Enter your Email"><br><br>
-        
-        <label for="Enter Password">Enter Password:</label>
-        <input type="text" id="Enter Password" name="Enter Password"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <span  id="error"><?php echo $emailError; ?> </span><br>
 
 
-        
-        
-</fieldset>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <span  id="error"><?php echo $passwordError; ?> </span><br>
 
-<form action="Admin_Home.php">
-        <button type="Login">Login</button>
+
+<button type="submit" name="submit">Submit</button>
 </form>
 
 </body>

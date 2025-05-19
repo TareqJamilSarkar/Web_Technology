@@ -17,7 +17,7 @@ require "action.php";
 
     <h1>Customer Registration</h1>
 
-    <form action="" method="POST" enctype="multipart/form-data" onsubmit = "return validate()">
+    <form action="Admin_Home.php" method="POST" enctype="multipart/form-data" onsubmit = "return validate()">
 
         <fieldset>
             <legend>Personal Information</legend>
@@ -45,6 +45,10 @@ require "action.php";
             <label for="email">Email:</label>
             <input type="email" id="email" name="email">
             <span  id="error"><?php echo $emailError; ?> </span><br> 
+
+             <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <span  id="error"><?php echo $passwordError; ?> </span><br> 
 
         </fieldset>
 

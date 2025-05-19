@@ -2,90 +2,89 @@
 
 include "db.php";
 
-$fnameError = $surnameError = $phoneError = $dobError = $addressError = $emailError = $eventError = $myfileError = "";
-$haserror = 0;
+$fnameError = $surnameError = $phoneError = $dobError = $addressError = $emailError = $passwordError = $eventError = $myfileError = "";
+$hasError = 0;
+$myfile = "";
 
-$firstname = $surname = $phone = $dob = $address = $email = $event = $message = $myfile = "";
+if (isset($_REQUEST["submit"])) {
 
-if (isset($_POST["submit"])) {
-
-    if (empty($_POST["firstname"])) {
+    if (empty($_REQUEST["firstname"])) {
         $fnameError = "Invalid first name";
-        $haserror = 1;
-    } else {
-        $firstname = $_POST["firstname"];
+        $hasError = 1;
     }
 
-    if (empty($_POST["surname"])) {
+    if (empty($_REQUEST["surname"])) {
         $surnameError = "Invalid surname";
-        $haserror = 1;
-    } else {
-        $surname = $_POST["surname"];
+        $hasError = 1;
     }
 
-    if (empty($_POST["phone"])) {
+    if (empty($_REQUEST["phone"])) {
         $phoneError = "Invalid phone number";
-        $haserror = 1;
-    } else {
-        $phone = $_POST["phone"];
+        $hasError = 1;
     }
 
-    if (empty($_POST["dob"])) {
+    if (empty($_REQUEST["dob"])) {
         $dobError = "Invalid date of birth";
-        $haserror = 1;
-    } else {
-        $dob = $_POST["dob"];
+        $hasError = 1;
     }
 
-    if (empty($_POST["address"])) {
+    if (empty($_REQUEST["address"])) {
         $addressError = "Invalid address";
-        $haserror = 1;
-    } else {
-        $address = $_POST["address"];
+        $hasError = 1;
     }
 
-    if (empty($_POST["email"])) {
+    if (empty($_REQUEST["email"])) {
         $emailError = "Invalid email";
-        $haserror = 1;
-    } else {
-        $email = $_POST["email"];
+        $hasError = 1;
     }
 
-    if (empty($_POST["event"])) {
+    if (empty($_REQUEST["password"])) {
+        $passwordError = "Invalid password";
+        $hasError = 1;
+    }
+
+    if (empty($_REQUEST["event"])) {
         $eventError = "Please select an event";
-        $haserror = 1;
-    } else {
-        $event = $_POST["event"];
+        $hasError = 1;
     }
 
-    if (!empty($_POST["message"])) {
-        $message = $_POST["message"];
-    }
-
+    $message = !empty($_REQUEST["message"]) ? $_REQUEST["message"] : "";
 
     if (!isset($_FILES["file"]) || $_FILES["file"]["error"] != 0) {
         $myfileError = "Invalid File";
-        $haserror = 1;
+        $hasError = 1;
     } else {
-      
-        $uploadDir = "uploads/";
-        if (!file_exists($uploadDir)) {
-            mkdir($uploadDir, 0777, true);
-        }
         $myfile = basename($_FILES["file"]["name"]);
-        $targetFile = $uploadDir . $myfile;
-
-        if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
-        
-        } else {
-            $myfileError = "File upload failed";
-            $haserror = 1;
-        }
     }
 
-    if ($haserror == 0) {
+    if ($hasError == 0) {
         $conn = createConObject();
-        insertData($conn, $firstname, $surname, $phone, $dob, $address, $email, $event, $myfile);
+        if (insertData(
+            $conn,
+            $_REQUEST["firstname"],
+            $_REQUEST["surname"],
+            $_REQUEST["phone"],
+            $_REQUEST["dob"],
+            $_REQUEST["address"],
+            $_REQUEST["email"],
+            $_REQUEST["password"],
+            $_REQUEST["event"],
+            $myfile,
+        )) {
+            $uploadDir = $_SERVER['DOCUMENT_ROOT'] . "/uploads/";
+            if (!file_exists($uploadDir)) {
+                mkdir($uploadDir, 0777, true);
+            }
+
+            $targetFile = $uploadDir . $myfile;
+            if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
+                header("Location: Admin_Home.php");
+                exit();
+            }
+
+        } else {
+            $messages = mysqli_error($conn);
+        }
         closeCon($conn);
     }
 }

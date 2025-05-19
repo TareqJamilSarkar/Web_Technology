@@ -5,21 +5,19 @@ function createConObject(){
 }
 
 
-function insertData($conn, $firstname, $surname, $phone, $dob, $address, $email, $event, $myfile) {
-    $sql = "INSERT INTO Users (firstname, surname, phone, dob, address, email, event, myfile)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    if (!$stmt) {
-        die("Prepare failed: " . $conn->error);
-    }
-    $stmt->bind_param("ssisssss", $firstname, $surname, $phone, $dob, $address, $email, $event, $myfile);
-    if ($stmt->execute()) {
-        echo "Data inserted successfully.<br>";
+function insertData($conn, $firstname, $surname, $phone, $dob, $address, $email,$password, $event, $myfile) {
+    $sql = "INSERT INTO Users (firstname, surname, phone, dob, address, email,password, event, myfile )
+            VALUES ( '$firstname', '$surname', '$phone', '$dob', '$address', '$email','$password', '$event', '$myfile')";
+    if(mysqli_query($conn, $sql)){
+        return true;
     } else {
-        die("Insert error: " . $stmt->error);
+        return false;
     }
-    $stmt->close();
 }
+function checkLogin($conn, $email, $password) {
+    $sql = "SELECT * FROM Users WHERE email='$email' AND password='$password'";
+    return  mysqli_query($conn, $sql);
+}   
 
 function closeCon($conn) {
     $conn->close();
