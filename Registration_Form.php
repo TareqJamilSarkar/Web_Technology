@@ -17,7 +17,7 @@ require "action.php";
 
     <h1>Customer Registration</h1>
 
-    <form action="Registration_Form.php" method="POST" enctype="multipart/form-data" onsubmit = "return validate()">
+    <form action="" method="POST" enctype="multipart/form-data" onsubmit = "return validate()">
 
         <fieldset>
             <legend>Personal Information</legend>

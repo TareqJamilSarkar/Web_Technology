@@ -69,9 +69,9 @@ if (isset($_REQUEST["submit"])) {
             $_REQUEST["email"],
             $_REQUEST["password"],
             $_REQUEST["event"],
-            $myfile,
+            $myfile
         )) {
-            $uploadDir = $_SERVER['DOCUMENT_ROOT'] . "/uploads/";
+            $uploadDir = __DIR__ . "/uploads/";
             if (!file_exists($uploadDir)) {
                 mkdir($uploadDir, 0777, true);
             }
@@ -81,7 +81,6 @@ if (isset($_REQUEST["submit"])) {
                 header("Location: admin.php");
                 exit();
             }
-
         } else {
             $messages = mysqli_error($conn);
         }
