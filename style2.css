@@ -1,55 +1,28 @@
-* {
-  font-size: 16px;
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background: #fff;
 }
-
-fieldset {
-  border: 2px solid #333;
-  padding: 15px;
-  margin-top: 20px;
-  background-color: #94eaf2;
+th, td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #e8e8e8;
 }
-
-.input-label {
-  display: inline-block;
-  width: 120px;
-  margin-right: 10px;
-  font-weight: bold;
+th {
+    background: #f0f8ff;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
 }
-
-#message {
-  max-width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
+tr:hover {
+    background: #f7faff;
 }
-
-input[type="text"],
-input[type="email"] {
-  border: 1px solid #aaa;
-  padding: 8px;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.login-box {
-  height: 300px;
-  overflow-y: auto;
-  border: 1px dashed #ccc;
-}
-
-/* Margin and Padding examples */
-form {
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 8px;
-}
-
-#admin-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  background-color: #000;
-  color: white;
-  width: 100%;
-  padding: 10px;
+@media (max-width: 700px) {
+    .container, .edit-box, .profile-container, .home-container {
+        width: 96% !important;
+        padding: 12px !important;
+    }
+    table, th, td {
+        font-size: 14px;
+    }
 }
