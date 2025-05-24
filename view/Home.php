@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 ?>
 <!DOCTYPE html>
@@ -7,8 +6,8 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Welcome Home</title>
-    <link rel="stylesheet" href="style1.css">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="../css/style1.css">
+    <link rel="stylesheet" href="../css/style2.css">
     <style>
         .home-container { max-width: 500px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 12px; text-align: center; }
         .home-title { color: #007bff; }
@@ -22,7 +21,7 @@ session_start();
         <p>You are logged in to the Event Management System.</p>
         <div class="home-links">
             <a href="Admin_Home.php">Admin Panel</a> | 
-            <a href="logout.php">Logout</a>
+            <a href="../control/logout.php">Logout</a>
         </div>
     </div>
 </body>

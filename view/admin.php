@@ -9,8 +9,8 @@ unset($_SESSION['message'], $_SESSION['message_type']);
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="style1.css">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="../css/style1.css">
+    <link rel="stylesheet" href="../css/style2.css">
 </head>
 <body>
     <div class="container login-box">
@@ -21,7 +21,7 @@ unset($_SESSION['message'], $_SESSION['message_type']);
             </div>
         <?php endif; ?>
 
-        <form action="login_control.php" method="POST" autocomplete="off">
+        <form action="../control/login_control.php" method="POST" autocomplete="off">
             <div class="form-group">
                 <label for="login-email">Email:</label>
                 <input type="email" name="email" id="login-email" required>

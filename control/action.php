@@ -1,5 +1,5 @@
 <?php
-include "db.php";
+include "../model/db.php";
 
 $fnameError = $surnameError = $phoneError = $dobError = $addressError = $emailError = $passwordError = $eventError = $myfileError = "";
 $hasError = 0;
@@ -57,7 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         $myfile = basename($_FILES["file"]["name"]);
     }
 
-
     if ($hasError == 0) {
         $conn = createConObject();
         $inserted = insertData(
@@ -73,17 +72,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
             $myfile
         );
         if ($inserted) {
-            $uploadDir = __DIR__ . "/uploads/";
+            $uploadDir = dirname(__DIR__) . "/uploads/";
             if (!file_exists($uploadDir)) {
                 mkdir($uploadDir, 0777, true);
             }
             $targetFile = $uploadDir . $myfile;
             if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
-              
+
                 session_start();
                 $_SESSION['message'] = "Registration successful! Please log in.";
                 $_SESSION['message_type'] = "success";
-                header("Location: admin.php");
+                header("Location: ../view/admin.php");
                 exit();
             } else {
                 $myfileError = "Failed to upload file.";

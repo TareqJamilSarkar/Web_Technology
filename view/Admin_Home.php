@@ -4,7 +4,7 @@ if (!isset($_SESSION["admin_id"])) {
     header("Location: admin.php");
     exit();
 }
-include "db.php";
+include "../model/db.php";
 $conn = createConObject();
 $searchName = $_GET['search'] ?? '';
 $users = [];
@@ -23,8 +23,8 @@ if ($searchName !== "") {
 <head>
     <meta charset="UTF-8">
     <title>Admin Panel - User Management</title>
-    <link rel="stylesheet" href="style1.css">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="../css/style1.css">
+    <link rel="stylesheet" href="../css/style2.css">
     <style>
         img.profile-img { width: 70px; height: 70px; object-fit: cover; border-radius: 50%; border: 2px solid #007bff; }
         .admin-actions a { margin: 0 5px; }
@@ -34,7 +34,7 @@ if ($searchName !== "") {
 </head>
 <body>
     <h1>Welcome to the Admin Panel</h1>
-    <p><strong>Logged in as:</strong> <?php echo htmlspecialchars($_SESSION["admin_name"]); ?> | <a href="logout.php">Logout</a></p>
+    <p><strong>Logged in as:</strong> <?php echo htmlspecialchars($_SESSION["admin_name"]); ?> | <a href="../control/logout.php">Logout</a></p>
 
     <div class="search-box">
         <form method="get" action="">
@@ -60,8 +60,8 @@ if ($searchName !== "") {
                 <tr>
                     <td><?php echo $user['id']; ?></td>
                     <td>
-                        <?php if (!empty($user['myfile']) && file_exists(__DIR__ . "/uploads/" . $user['myfile'])): ?>
-                            <img class="profile-img" src="uploads/<?php echo htmlspecialchars($user['myfile']); ?>" alt="Profile Image">
+                        <?php if (!empty($user['myfile']) && file_exists(dirname(__DIR__) . "/uploads/" . $user['myfile'])): ?>
+                            <img class="profile-img" src="../uploads/<?php echo htmlspecialchars($user['myfile']); ?>" alt="Profile Image">
                         <?php else: ?>
                             <span style="color:gray;">No Image</span>
                         <?php endif; ?>
@@ -75,8 +75,8 @@ if ($searchName !== "") {
                     <td><?php echo htmlspecialchars($user['email']); ?></td>
                     <td><?php echo htmlspecialchars($user['event']); ?></td>
                     <td class="admin-actions">
-                        <a href="edit.php?id=<?php echo $user['id']; ?>">Edit</a>
-                        <a href="delete.php?id=<?php echo $user['id']; ?>" onclick="return confirm('Are you sure to delete?')">Delete</a>
+                        <a href="../control/edit.php?id=<?php echo $user['id']; ?>">Edit</a>
+                        <a href="../control/delete.php?id=<?php echo $user['id']; ?>" onclick="return confirm('Are you sure to delete?')">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

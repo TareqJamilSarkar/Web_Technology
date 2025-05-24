@@ -1,11 +1,10 @@
 <?php
-
 session_start();
 if (!isset($_SESSION["admin_id"])) {
     header("Location: admin.php");
     exit();
 }
-include "db.php";
+include "../model/db.php";
 $conn = createConObject();
 
 $userId = isset($_GET['id']) ? intval($_GET['id']) : 0;
@@ -22,8 +21,8 @@ if (!$user) {
 <head>
     <meta charset="UTF-8">
     <title>User Profile - <?php echo htmlspecialchars($user['firstname']); ?></title>
-    <link rel="stylesheet" href="style1.css">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="../css/style1.css">
+    <link rel="stylesheet" href="../css/style2.css">
     <style>
         .profile-container { max-width: 500px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 10px; border: 1px solid #007bff;}
         .profile-img { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 2px solid #007bff; margin-bottom: 15px; }
@@ -37,8 +36,8 @@ if (!$user) {
 <div class="profile-container">
     <h2 class="profile-title">User Profile</h2>
     <div style="text-align:center;">
-        <?php if (!empty($user['myfile']) && file_exists(__DIR__ . "/uploads/" . $user['myfile'])): ?>
-            <img class="profile-img" src="uploads/<?php echo htmlspecialchars($user['myfile']); ?>" alt="Profile Image">
+        <?php if (!empty($user['myfile']) && file_exists(dirname(__DIR__) . "/uploads/" . $user['myfile'])): ?>
+            <img class="profile-img" src="../uploads/<?php echo htmlspecialchars($user['myfile']); ?>" alt="Profile Image">
         <?php else: ?>
             <span style="color:gray;">No Image</span>
         <?php endif; ?>

@@ -1,18 +1,18 @@
 <?php
-include 'action.php';
+include '../control/action.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Event Registration Form</title>
-    <link rel="stylesheet" href="style1.css">
-    <link rel="stylesheet" href="style2.css">
-    <script src="myjs.js"></script>
+    <link rel="stylesheet" href="../css/style1.css">
+    <link rel="stylesheet" href="../css/style2.css">
+    
 </head>
 <body>
     <h1>Customer Registration</h1>
-    <form action="" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
+    <form action="" method="POST" enctype="multipart/form-data" onsubmit="return validateForm(this.id)" id="regForm">
         <fieldset>
             <legend>Personal Information</legend>
             <label for="firstname">First Name:</label>

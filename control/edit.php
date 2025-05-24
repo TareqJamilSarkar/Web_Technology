@@ -1,12 +1,11 @@
 <?php
 session_start();
 if (!isset($_SESSION["admin_id"])) {
-    header("Location: admin.php");
+    header("Location: ../view/admin.php");
     exit();
 }
-include "db.php";
+include "../model/db.php";
 $conn = createConObject();
-
 
 $userId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $user = getUserById($conn, $userId);
@@ -67,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update"])) {
     $myfile = $user['myfile'];
     if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) {
         $myfile = basename($_FILES["file"]["name"]);
-        $uploadDir = __DIR__ . "/uploads/";
+        $uploadDir = dirname(__DIR__) . "/uploads/";
         if (!file_exists($uploadDir)) {
             mkdir($uploadDir, 0777, true);
         }
@@ -83,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update"])) {
         if ($updated) {
             $_SESSION["message"] = "User updated successfully!";
             $_SESSION["message_type"] = "success";
-            header("Location: Admin_Home.php");
+            header("Location: ../view/Admin_Home.php");
             closeCon($conn);
             exit();
         } else {
@@ -97,8 +96,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update"])) {
 <head>
     <meta charset="UTF-8">
     <title>Edit User - <?php echo htmlspecialchars($user['firstname']); ?></title>
-    <link rel="stylesheet" href="style1.css">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="../css/style1.css">
+    <link rel="stylesheet" href="../css/style2.css">
     <style>
         .edit-box { max-width: 600px; margin: 30px auto; background: #fff; padding: 25px; border-radius: 10px; }
         .profile-img { width: 80px; height: 80px; object-fit: cover; border-radius: 50%; border: 2px solid #007bff; }
@@ -153,8 +152,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update"])) {
         <span class="error" style="color:red;"><?php echo $eventError; ?></span><br>
 
         <label>Current Image:</label><br>
-        <?php if (!empty($user['myfile']) && file_exists(__DIR__ . "/uploads/" . $user['myfile'])): ?>
-            <img class="profile-img" src="uploads/<?php echo htmlspecialchars($user['myfile']); ?>" alt="Profile Image"><br>
+        <?php if (!empty($user['myfile']) && file_exists(dirname(__DIR__) . "/uploads/" . $user['myfile'])): ?>
+            <img class="profile-img" src="../uploads/<?php echo htmlspecialchars($user['myfile']); ?>" alt="Profile Image"><br>
         <?php else: ?>
             <span style="color:gray;">No Image</span><br>
         <?php endif; ?>
@@ -163,7 +162,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update"])) {
         <span class="error" style="color:red;"><?php echo $myfileError; ?></span><br>
 
         <button type="submit" name="update">Update</button>
-        <a href="Admin_Home.php"><button type="button">Cancel</button></a>
+        <a href="../view/Admin_Home.php"><button type="button">Cancel</button></a>
     </form>
 </div>
 </body>
